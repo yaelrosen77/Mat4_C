@@ -1,10 +1,14 @@
-#include "graph.h"
+#ifndef VERTEX
+#define VERTEX
+
 #include <stdio.h>
+#include <stdlib.h>
+#include "graph.h"
+#include <string.h>
 
-void CreateNewVertex(pvertex *head, int data, pedge p, pvertex next);
+pvertex CreateNewVertex(int data);
 
-void delete_vertex_cmd(pvertex *head);
+pvertex GetVertex(int data, pvertex *p);
 
-void insert_vertex_cmd(pvertex *head);
+#endif
 
-int isExist(pvertex vert);

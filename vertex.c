@@ -1,31 +1,22 @@
 #include "vertex.h"
 
 
-void CreateNewVertex(pvertex *head, int data, pedge p, pvertex next){   
-    (*head)->index = data;
-
-    (*head)->edges = p;
-    
+pvertex CreateNewVertex(int data){  
+    pvertex vert = (pvertex)malloc(sizeof(vert));
+    memset(vert,0,sizeof(vertex));
+    vert->index = data;
+    vert->edges = NULL;
+    vert->next = NULL;
+    return vert; 
 }
 
-int isExist(pvertex vert){
-    if (vert->index!= NULL){
-        return 1;
+pvertex GetVertex(int data, pvertex *head3){
+    pvertex temp = *head3;
+    while (temp){
+        if (temp->index==data){
+            return temp;            
+        }
+        temp=temp->next;
     }
-    return 0;
-}
-
-
-
-void insert_vertex_cmd(pvertex *head){
-
-
-}
-
-
-
-
-
-void delete_vertex_cmd(pvertex *head){
-    //free memory and set head to null 
+    return NULL;
 }

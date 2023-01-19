@@ -1,4 +1,16 @@
+#ifndef EDGE
+#define EDGE
+
+#include <stdlib.h>
+#include <stdio.h>
 #include "graph.h"
 
-void CreateNewEdge(pedge CurrentEdge, int weight, vertex endpoint, pedge next);
+char SetEdges(pvertex p, pvertex* head4);
 
+void CreateNewedge(pvertex p, int vert_data, int weight, pvertex *head5);
+
+int isDigit(char c);
+
+void DeleteEdges(pvertex p);
+
+#endif
