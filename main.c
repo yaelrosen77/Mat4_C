@@ -2,6 +2,7 @@
 #include "graph.h"
 #include "vertex.h"
 #include "edge.h"
+#include "algo.h"
 
 int main(){
     char c = '\0';
@@ -13,13 +14,15 @@ int main(){
             printGraph_cmd(&head);
         }
         if(c == 'B'){
-            c = insert_node_cmd(&head);
+            c = insert_vertex_cmd(&head);
             printGraph_cmd(&head);
         }
-        if (c == 'D'){
-            delete_vertex_cmd(&head);
-            
-        }
+        // if (c == 'D'){
+        //     delete_vertex_cmd(&head);
+        // }
+        // if (c == 'S'){
+        //     shortest_path_cmd(&head);
+        // }
     }   
     return 0;
 }
@@ -75,6 +78,15 @@ void delete_vertex_cmd(pvertex *head8){
     p = GetVertex(ndx, head8);
     DeleteEdges(p);
 }
+
+// void shortest_path_cmd(pvertex head10){
+//     int vertA, vertB;
+//     scanf(" %d\n",&vertA);
+//     scanf(" %d\n",&vertB);
+//     pvertex Va = GetVertex(vertA, head10);
+//     pvertex Vb = GetVertex(vertB, head10);
+//     printf("d\n",dijkstra(Va, Vb, head10));
+// }
 
 
 void printGraph_cmd(pvertex *head7){

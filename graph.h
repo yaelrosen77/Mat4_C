@@ -13,6 +13,8 @@ typedef struct vertex {
     int index;  
     pedge edges;
     struct vertex* next;
+    int isVisited;
+    int dij;
 }vertex, *pvertex;
 
 
@@ -21,5 +23,6 @@ void deleteGraph_cmd(pvertex *head);
 char insert_vertex_cmd(pvertex *head6);
 void printGraph_cmd(pvertex *head7);
 void delete_vertex_cmd(pvertex *head8);
+void shortest_path_cmd(pvertex head10);
 
 #endif

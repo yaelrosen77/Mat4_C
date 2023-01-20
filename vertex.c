@@ -6,15 +6,11 @@ pvertex CreateNewVertex(int data){
     memset(vert,0,sizeof(vertex));
     vert->index = data;
     vert->edges = NULL;
+    vert->isVisited = NULL;
     vert->next = NULL;
+    vert->dij = NULL;
     return vert; 
 }
-
-void DeleteVertex(int data, pvertex *head4){
-    
-}
-
-
 
 
 pvertex GetVertex(int data, pvertex *head3){
