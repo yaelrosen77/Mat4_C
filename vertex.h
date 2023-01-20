@@ -10,5 +10,7 @@ pvertex CreateNewVertex(int data);
 
 pvertex GetVertex(int data, pvertex *p);
 
+void DeleteVertex(int data, pvertex *head4);
+
 #endif
 

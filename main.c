@@ -6,19 +6,20 @@
 int main(){
     char c = '\0';
     pvertex head = NULL;
-    printf("pls enter your char\n");     
     scanf(" %c", &c);
     while (1){
         if (c == 'A'){
             c = build_graph_cmd(&head);
             printGraph_cmd(&head);
-            printf("yay");
-            scanf(" %c", &c);
         }
-        // if(c == 'B'){
-            // c = insert_node_cmd(&head);
-            // printGraph_cmd(head);
-        // }
+        if(c == 'B'){
+            c = insert_node_cmd(&head);
+            printGraph_cmd(&head);
+        }
+        if (c == 'D'){
+            delete_vertex_cmd(&head);
+            
+        }
     }   
     return 0;
 }
@@ -29,7 +30,6 @@ char build_graph_cmd(pvertex *head2){
     char c = '\0';
     // if(head2 != NULL){
     //     deleteGraph_cmd(head2);}
-    printf("pls enter your num of vertices\n"); 
     scanf(" %d", &NumOfVertices);
     tempV = CreateNewVertex(0);
     *head2 = tempV;
@@ -38,44 +38,50 @@ char build_graph_cmd(pvertex *head2){
         tempV->next=tempV2;
         tempV = tempV2;
         }
-    printf("pls enter your choice\n");
     scanf(" %c", &c);
     while (1){
         if (c == 'n'){
-            printf("pls enter your the new vertex\n");
             scanf(" %d",&ndx);
             tempV = GetVertex(ndx, head2);
             c = SetEdges(tempV, head2);}
         else {
             printf("\n");
-            printf("no more creating edges\n");
             break;}
     }
     return c;
 }
 
-char insert_node_cmd(pvertex *head6){
+char insert_vertex_cmd(pvertex *head6){
     int ndx; 
     scanf(" %d\n",&ndx);
     pvertex p = GetVertex(ndx, head6);
     if (p){
         printf("Vertex exsists %d\n",p->index);
-        DeleteEdges(p);
-    }
+        if (p->edges){
+            DeleteEdges(p);}}
     else{
         pvertex vRun = (*head6);
         while(vRun->next){
-            printf("vRun: %d\n",vRun->index);
-            vRun=vRun->next;}
+            vRun = vRun->next;}
         p = CreateNewVertex(ndx);
         vRun->next = p;
     }
     return SetEdges(p, head6);
 }
 
-void printGraph_cmd(pvertex *head6){
-    pvertex * temp; pedge* edge_pointer= NULL;
-    temp = head6;
+void delete_vertex_cmd(pvertex *head8){
+    int ndx; 
+    scanf(" %d\n",&ndx);
+}
+
+
+
+
+
+
+void printGraph_cmd(pvertex *head7){
+    pvertex * temp; pedge* edge_pointer= NULL; 
+    temp = head7;
     printf("Printing the graph !\n\n");
     while (1){
         if (temp){
@@ -83,16 +89,17 @@ void printGraph_cmd(pvertex *head6){
                 edge_pointer = (&(*temp)->edges);}
             printf("Vertex index number is: %d\n", (*temp)->index);
             while (edge_pointer){
-                printf("Vertex has an edge to vertex number %d with a weight %d \n", (*edge_pointer)->endpoint->index, (*edge_pointer)->weight);               
-                if ((*edge_pointer)->next != NULL){
-                    edge_pointer = (&((*edge_pointer)->next));}
+                printf("Vertex has an edge to vertex number %d with a weight %d \n", (*edge_pointer)->endpoint->index, (*edge_pointer)->weight);              
+                if ((*edge_pointer)->nextE != NULL){
+                    edge_pointer = (&((*edge_pointer)->nextE));}
                 else {
-                    break;}
-            } 
+                    edge_pointer=NULL;}
+            }
             printf("\n");}
-        if ((*temp)->next){
-            temp = &((*temp)->next);
-            edge_pointer = NULL;}
-        else {
-            break;}}
+            if ((*temp)->next){
+                temp = &((*temp)->next);
+                edge_pointer = NULL;}
+                
+            else {
+                break;}}
 }

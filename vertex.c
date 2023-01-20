@@ -10,6 +10,13 @@ pvertex CreateNewVertex(int data){
     return vert; 
 }
 
+void DeleteVertex(int data, pvertex *head4){
+    
+}
+
+
+
+
 pvertex GetVertex(int data, pvertex *head3){
     pvertex temp = *head3;
     while (temp){
