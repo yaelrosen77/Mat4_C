@@ -70,13 +70,11 @@ char insert_vertex_cmd(pvertex *head6){
 }
 
 void delete_vertex_cmd(pvertex *head8){
-    int ndx; 
+    int ndx; pvertex p;
     scanf(" %d\n",&ndx);
+    p = GetVertex(ndx, head8);
+    DeleteEdges(p);
 }
-
-
-
-
 
 
 void printGraph_cmd(pvertex *head7){

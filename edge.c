@@ -49,7 +49,29 @@ void DeleteEdges(pvertex p){
         temp2 = temp;
         temp = temp->nextE;
         free(temp2);
-        p->edges = NULL;
+    }
+    p->edges = NULL;    
+}
+
+void DeletePointingEdges(pvertex p, pvertex* head9){
+    pvertex temp = (*head9); pedge edge_pointer;
+    while (temp){
+        edge_pointer = temp->edges;
+        if ()
+        
+
+
+
+        temp = temp->next;
     }
 }
-    
+
+
+
+
+
+ 
+
+
+
+

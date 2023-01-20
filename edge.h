@@ -13,4 +13,9 @@ int isDigit(char c);
 
 void DeleteEdges(pvertex p);
 
+void DeletePointingEdges(pvertex p, pvertex *head9);
+
+void dispatch_edge(pvertex p, int index);
+
+
 #endif
