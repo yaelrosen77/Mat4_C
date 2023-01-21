@@ -1,7 +1,7 @@
 #include "vertex.h"
 
 pvertex CreateNewVertex(int data){  
-    pvertex vert = (pvertex)malloc(sizeof(vert));
+    pvertex vert = (pvertex)malloc(sizeof(vertex));
     memset(vert,0,sizeof(vertex));
     vert->index = data;
     vert->edges = NULL;

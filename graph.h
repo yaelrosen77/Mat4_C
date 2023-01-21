@@ -1,9 +1,5 @@
 #ifndef GRAPH
 #define GRAPH
-#include <stdio.h>
-#include "vertex.h"
-#include "edge.h"
-#include "algo.h"
 
 typedef struct vertex *pvertex;
 

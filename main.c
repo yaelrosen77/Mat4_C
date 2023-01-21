@@ -1,4 +1,9 @@
 #include "graph.h"
+#include <stdio.h>
+#include "vertex.h"
+#include "edge.h"
+#include "algo.h"
+#include <stdlib.h>
 
 int NumOfVertices = 0;
 
@@ -34,10 +39,10 @@ int main(){
 }
 
 char build_graph_cmd(pvertex *head2){
-    pvertex tempV; 
-    int ndx;
+    pvertex tempV = NULL; 
+    int ndx = 0;
     char c = '\0';
-    if(head2 != NULL){
+    if(*head2){
         deleteGraph_cmd(head2);}
     scanf(" %d", &NumOfVertices);
     tempV = CreateNewVertex(0);
@@ -61,7 +66,7 @@ char build_graph_cmd(pvertex *head2){
 }
 
 char insert_vertex_cmd(pvertex *head6){
-    int ndx; 
+    int ndx =0;
     scanf(" %d\n",&ndx);
     pvertex p = GetVertex(ndx, head6);
     if (p){
@@ -79,7 +84,7 @@ char insert_vertex_cmd(pvertex *head6){
 }
 
 void delete_vertex_cmd(pvertex *head8){
-    int ndx; pvertex p;
+    int ndx=0; pvertex p= NULL;
     scanf(" %d\n",&ndx);
     p = GetVertex(ndx, head8);
     DeleteEdges(p);
@@ -89,7 +94,7 @@ void delete_vertex_cmd(pvertex *head8){
 
 void shortest_path_cmd(pvertex head10){
     SetNumOfVertices(NumOfVertices);
-    int vertA, vertB;
+    int vertA=0, vertB=0;
     scanf(" %d\n",&vertA);
     scanf(" %d\n",&vertB);
     pvertex Va = GetVertex(vertA, &head10);
@@ -100,19 +105,19 @@ void shortest_path_cmd(pvertex head10){
 
 void tsp_cmd(pvertex *head13){
     SetNumOfVertices(NumOfVertices);
-    int i, k;                         // maximum 6 nodes to check
+    int i=0, k=0;                         // maximum 6 nodes to check
     scanf(" %d", &k);
     int * arr = (int*) malloc(sizeof(int)*k);
     for (i = 0; i <k; i++)
         scanf(" %d", &(arr[i]));
-    permutation(&arr, *head13, 0, k-1, k);
-    printf("TSP shortest path: d\n", tsp_print());
+    permutation(arr, *head13, 0, k-1, k);
+    printf("TSP shortest path: %d\n", tspprint());
     SetMinPath();
     free(arr);
 }
 
 void deleteGraph_cmd(pvertex *head8){
-    pvertex p = *head8, temp;
+    pvertex p = *head8, temp= NULL;
     while (p){
         temp = p;
         p = p->next;
@@ -125,7 +130,7 @@ void deleteGraph_cmd(pvertex *head8){
 }
     
 void printGraph_cmd(pvertex *head7){
-    pvertex * temp; pedge* edge_pointer= NULL; 
+    pvertex * temp= NULL; pedge* edge_pointer= NULL; 
     temp = head7;
     printf("Printing the graph !\n\n");
     while (1){

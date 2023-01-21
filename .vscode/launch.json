@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/graph",
-            "args": [],
+            "args": ["<" , "~/Documents/mat4_c/test.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
