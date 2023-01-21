@@ -10,29 +10,34 @@ int NumOfVertices = 0;
 int main(){
     char c = '\0';
     pvertex head = NULL;
-    while (scanf(" %c", &c) != EOF){
+    int scani = 1;
 
+    while (1){
+        if (scani){
+            if (scanf(" %c",&c)==EOF){break;}
+        }
         if (c == 'A'){
             c = build_graph_cmd(&head);
             printGraph_cmd(&head);
+            scani = 0;
         }
         if(c == 'B'){
             c = insert_vertex_cmd(&head);
             printGraph_cmd(&head);
+            scani = 0;
         }
         if (c == 'D'){
             delete_vertex_cmd(&head);
-            scanf(" %c", &c);
+            scani = 1;
         }
         if (c == 'S'){
             shortest_path_cmd(head);
-            scanf(" %c", &c);
+            scani = 1;
         }
         if (c == 'T'){
             tsp_cmd(&head);
-            scanf(" %c", &c);
+            scani = 1;
         }
-        scanf(" %c", &c);
     }
     deleteGraph_cmd(&head);   
     return 0;
@@ -108,7 +113,7 @@ void tsp_cmd(pvertex *head13){
     int i=0, k=0;                         // maximum 6 nodes to check
     scanf(" %d", &k);
     int * arr = (int*) malloc(sizeof(int)*k);
-    for (i = 0; i <k; i++)
+    for (i = 0; i <k; ++i)
         scanf(" %d", &(arr[i]));
     permutation(arr, *head13, 0, k-1, k);
     printf("TSP shortest path: %d\n", tspprint());
@@ -120,9 +125,9 @@ void deleteGraph_cmd(pvertex *head8){
     pvertex p = *head8, temp= NULL;
     while (p){
         temp = p;
-        p = p->next;
         if(p->edges){
             DeleteEdges(p);}
+        p = p->next;
         free(temp);
     }
     *head8 = NULL;

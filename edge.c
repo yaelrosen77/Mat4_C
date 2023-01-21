@@ -3,7 +3,7 @@
 
 char SetEdges(pvertex p, pvertex *head4){
     char c = '\0'; 
-    int ndx, weight;  
+    int ndx, weight =0;  
     if (scanf(" %c", &c)!= EOF){
         while (isDigit(c)){
             ndx = c - '0';
@@ -44,7 +44,7 @@ void CreateNewedge(pvertex p, int vert_data, int weight, pvertex *head5){
 
 void DeleteEdges(pvertex p){
     pedge temp = p->edges;
-    pedge temp2; 
+    pedge temp2 = NULL;
     while (temp){
         temp2 = temp;
         temp = temp->nextE;
@@ -54,7 +54,7 @@ void DeleteEdges(pvertex p){
 }
 
 void DeletePointingEdges(pvertex p, pvertex* head9){
-    pvertex temp = (*head9); pedge edge_pointer;
+    pvertex temp = (*head9); pedge edge_pointer = NULL;
     while (temp){
         edge_pointer = temp->edges;
         while (edge_pointer){
