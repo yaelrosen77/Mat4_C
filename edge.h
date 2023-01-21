@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "vertex.h"
 #include "graph.h"
 
 char SetEdges(pvertex p, pvertex* head4);

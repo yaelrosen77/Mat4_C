@@ -1,5 +1,9 @@
 #ifndef GRAPH
 #define GRAPH
+#include <stdio.h>
+#include "vertex.h"
+#include "edge.h"
+#include "algo.h"
 
 typedef struct vertex *pvertex;
 
@@ -24,5 +28,7 @@ char insert_vertex_cmd(pvertex *head6);
 void printGraph_cmd(pvertex *head7);
 void delete_vertex_cmd(pvertex *head8);
 void shortest_path_cmd(pvertex head10);
+void tsp_cmd(pvertex *head13);
+
 
 #endif

@@ -1,5 +1,5 @@
 #include "edge.h"
-#include "vertex.h"
+
 
 char SetEdges(pvertex p, pvertex *head4){
     char c = '\0'; 
