@@ -4,12 +4,12 @@ int minPath = INFINITY;
 int NumofVertices =0;
 
 int shortest_path(pvertex Va, pvertex Vb, pvertex head11){
-    int leftToVisit = NumofVertices, flag = 1;
+    int leftToVisit = NumofVertices;
     pvertex temp = NULL, dest = NULL;
     pedge edge_pointer = NULL;
     setData(head11);
     Va->dij = 0;
-    while (flag){
+    while (leftToVisit){
         temp = head11;
         minPath = INFINITY;
         while (temp){
@@ -38,12 +38,10 @@ int shortest_path(pvertex Va, pvertex Vb, pvertex head11){
                 edge_pointer = edge_pointer->nextE;}
         }
     dest->isVisited = 1;
-    leftToVisit--;
-    if (!leftToVisit){flag = 0;}
-    }
+    leftToVisit--;}
     if (Vb->dij == INFINITY){return -1;}
-
     return (Vb->dij);
+
 }
 
 void setData(pvertex head12){
@@ -56,6 +54,7 @@ void setData(pvertex head12){
 }
 
 void permutation(int *arr, pvertex head15, int st_ndx, int nd_ndx, int k){
+    setData(head15);
     int i = st_ndx, temp =0;
     if (st_ndx == nd_ndx){
         TSP(head15, arr, (1+nd_ndx),k);
@@ -73,12 +72,12 @@ void permutation(int *arr, pvertex head15, int st_ndx, int nd_ndx, int k){
 
 
 void TSP(pvertex head14, int *arr, int ndx, int k){
-    int j=1, min_temp =0; pvertex dest=NULL, src = GetVertex(*(arr), &head14);
-    while (j<k){
+    setData(head14);
+    int j=1 , min_temp =0; pvertex dest=NULL, src = GetVertex(*(arr), &head14);
+    for (j=1; j<k; ++j){
         dest = GetVertex(j, &head14);
         min_temp = min_temp+ shortest_path(src, dest, head14);
         src = GetVertex(j, &head14);
-        j++;
     }
     if (minPath > min_temp){minPath = min_temp;}
 }

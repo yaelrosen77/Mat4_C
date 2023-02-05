@@ -18,16 +18,17 @@ int main(){
         }
         if (c == 'A'){
             c = build_graph_cmd(&head);
-            printGraph_cmd(&head);
+    //        printGraph_cmd(&head);
             scani = 0;
         }
         if(c == 'B'){
             c = insert_vertex_cmd(&head);
-            printGraph_cmd(&head);
+  //          printGraph_cmd(&head);
             scani = 0;
         }
         if (c == 'D'){
             delete_vertex_cmd(&head);
+ //           printGraph_cmd(&head);
             scani = 1;
         }
         if (c == 'S'){
@@ -113,7 +114,7 @@ void tsp_cmd(pvertex *head13){
     int i=0, k=0;                         // maximum 6 nodes to check
     scanf(" %d", &k);
     int * arr = (int*) malloc(sizeof(int)*k);
-    for (i = 0; i <k; ++i)
+    for (i = 0; i <k; i++)
         scanf(" %d", &(arr[i]));
     permutation(arr, *head13, 0, k-1, k);
     printf("TSP shortest path: %d\n", tspprint());

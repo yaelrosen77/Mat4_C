@@ -21,7 +21,7 @@ void dispatch_vert(pvertex p, pvertex *head16){
         else{
             while (temp->next){
                 if (temp->next == p){
-                    temp->next = p->next->next;
+                    temp->next = p->next;
                     free(p);
                     temp = NULL;
                     break;

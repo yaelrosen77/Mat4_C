@@ -60,7 +60,8 @@ void DeletePointingEdges(pvertex p, pvertex* head9){
         while (edge_pointer){
             if(edge_pointer->endpoint == p){
                 temp->edges = edge_pointer->nextE;
-                free(edge_pointer);}
+                free(edge_pointer);
+                edge_pointer= temp->edges;}
             else{
                 while (edge_pointer->nextE){
                     if (edge_pointer->nextE->endpoint == p){
@@ -69,6 +70,7 @@ void DeletePointingEdges(pvertex p, pvertex* head9){
                         break;
                     }
                     edge_pointer = edge_pointer->nextE;}
+                break;
                 }
         }
         temp = temp->next;
